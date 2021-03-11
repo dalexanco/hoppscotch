@@ -20,6 +20,52 @@
         <span>GitHub</span>
       </button>
     </div>
+    <div>
+      <button class="icon" @click="signInWithGithub" v-close-popover>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" class="material-icons">
+          <path
+            d="M20 6h-8l-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-2.06 11L15 15.28 12.06 17l.78-3.33-2.59-2.24 3.41-.29L15 8l1.34 3.14 3.41.29-2.59 2.24.78 3.33z"
+          />
+        </svg>
+        <span>Folder</span>
+      </button>
+    </div>
+
+    <SmartModal v-if="true">
+      <div slot="header">
+        <div class="row-wrapper">
+          <h3 class="title">{{ $t("new_collection") }}</h3>
+          <div>
+            <button class="icon" @click="hideModal">
+              <i class="material-icons">close</i>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div slot="body" class="flex flex-col">
+        <label for="selectLabel">{{ $t("label") }}</label>
+        <input
+          type="text"
+          id="selectLabel"
+          v-model="name"
+          :placeholder="$t('my_new_collection')"
+          @keyup.enter="addNewCollection"
+        />
+      </div>
+      <div slot="footer">
+        <div class="row-wrapper">
+          <span></span>
+          <span>
+            <button class="icon" @click="hideModal">
+              {{ $t("cancel") }}
+            </button>
+            <button class="icon primary" @click="addNewCollection">
+              {{ $t("save") }}
+            </button>
+          </span>
+        </div>
+      </div>
+    </SmartModal>
   </div>
 </template>
 
