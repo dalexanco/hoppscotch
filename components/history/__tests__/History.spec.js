@@ -1,7 +1,6 @@
 import History from "../"
 import { fb } from "~/helpers/fb"
 import { shallowMount } from "@vue/test-utils"
-import HistoryRestCard from "../rest/Card"
 
 const restHistory = [
   {
